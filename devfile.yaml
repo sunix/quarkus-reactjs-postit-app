@@ -133,7 +133,7 @@ commands:
     actions:
       - workdir: /projects/postit-app/quarkus-backend
         type: exec
-        command: pkill java; mvn clean test
+        command: mvn clean test
         component: quarkus-backend-dev
 
   - name: start NATIVE quarkus-backend
