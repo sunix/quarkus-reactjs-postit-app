@@ -295,9 +295,9 @@ commands:
       - workdir: /usr/theia
         type: exec
         command: >-
-          test [ ! -d \"/home/theia/bin\"  ] &&  mkdir /home/theia/bin && cd
+          mkdir /home/theia/bin  2>/dev/null && cd
           /home/theia/bin && curl -LO
           https://github.com/tektoncd/cli/releases/download/v0.8.0/tkn_0.8.0_Linux_x86_64.tar.gz
           && tar xvzf tkn_0.8.0_Linux_x86_64.tar.gz -C /home/theia/bin/ tkn;
-          export PATH=$PATH:/home/theia/bin; bash
+          export PATH=$PATH:/home/theia/bin;tkn help; bash
         component: vscode-openshift
