@@ -6,7 +6,7 @@ projects:
 
   - source:
       type: git
-      location: 'https://github.com/redhat-developer-demos/quarkus-reactjs-postit-app'
+      location: 'https://github.com/sunix/quarkus-reactjs-postit-app'
     name: postit-app
 
   - source:
@@ -288,3 +288,16 @@ commands:
                   rm oc; curl https://mirror.openshift.com/pub/openshift-v4/clients/oc/latest/linux/oc.tar.gz -s | tar zxv && ./oc login --server=${KUBERNETES_SERVICE_HOST}:443
         component: vscode-openshift
         workdir: /tmp
+
+
+  - name: tekton
+    actions:
+      - workdir: /usr/theia
+        type: exec
+        command: >-
+          test [ ! -d \"/home/theia/bin\"  ] &&  mkdir /home/theia/bin && cd
+          /home/theia/bin && curl -LO
+          https://github.com/tektoncd/cli/releases/download/v0.8.0/tkn_0.8.0_Linux_x86_64.tar.gz
+          && tar xvzf tkn_0.8.0_Linux_x86_64.tar.gz -C /home/theia/bin/ tkn;
+          export PATH=$PATH:/home/theia/bin; bash
+        component: vscode-openshift
