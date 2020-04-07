@@ -6,8 +6,8 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TestPost {
 
     @Test
-    public void testHelloEndpoint() {
+    public void test_post_title_in_uppercase() {
         Post post = new Post("hello", "world");
-        assertEquals("HELLO", post.getTitle());
+        assertEquals("HELLO", post.getTitle(), "Post title should be in uppercase");
     }
 }
