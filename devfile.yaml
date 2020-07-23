@@ -95,7 +95,7 @@ components:
   - id: redhat/quarkus-java11/latest
     type: chePlugin
 
-  - id: redhat/vscode-openshift-connector/latest
+  - id: redhat/vscode-openshift-connector/0.1.2
     type: chePlugin
     alias: vscode-openshift
 
@@ -205,7 +205,7 @@ commands:
                   # labels
                   oc label dc mongo app.openshift.io/runtime=mongodb
                   oc label dc node-frontend app.openshift.io/runtime=nodejs
-                  oc label dc quarkus-backend app.openshift.io/runtime=java
+                  oc label dc quarkus-backend app.openshift.io/runtime=quarkus
                   # logs
                   oc logs -f bc/quarkus-backend
                   oc logs -f bc/node-frontend
@@ -228,7 +228,7 @@ commands:
                   # labels
                   oc label dc mongo app.openshift.io/runtime=mongodb
                   oc label dc node-frontend app.openshift.io/runtime=nodejs
-                  oc label dc quarkus-backend app.openshift.io/runtime=java
+                  oc label dc quarkus-backend app.openshift.io/runtime=quarkus
                   # logs
                   oc logs -f bc/quarkus-backend
                   oc logs -f bc/node-frontend
